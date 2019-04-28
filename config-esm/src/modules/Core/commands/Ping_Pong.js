@@ -29,12 +29,12 @@ class Pong extends Command {
         this.permissions.staff.bypass = [...this.axon.staff.owners, ...this.axon.staff.admins];
     }
 
-    async execute({ msg }) {
+    async execute( { msg } ) {
         const start = Date.now();
 
         const mess = await this.sendMessage(msg.channel, 'BADABOUM!');
         if (!mess) {
-            return;
+            return null;
         }
 
         const diff = (Date.now() - start);

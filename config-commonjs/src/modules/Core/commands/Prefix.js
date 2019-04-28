@@ -1,4 +1,4 @@
-import { Command } from 'axoncore';
+const { Command } = require('axoncore');
 
 class Prefix extends Command {
     constructor(module) {
@@ -40,4 +40,4 @@ class Prefix extends Command {
     }
 }
 
-export default Prefix;
+module.exports = Prefix;

@@ -1,6 +1,6 @@
-import nodeUtil from 'util';
+const nodeUtil = require('util');
 
-import { Command } from 'axoncore';
+const { Command } = require('axoncore');
 
 class Eval extends Command {
     constructor(module) {
@@ -80,4 +80,4 @@ class Eval extends Command {
     }
 }
 
-export default Eval;
+module.exports = Eval;

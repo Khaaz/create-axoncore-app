@@ -1,6 +1,6 @@
-import { Module } from 'axoncore';
+const { Module } = require('axoncore');
 
-import * as commands from './commands/index';
+const commands = require('./commands/index');
 // const index = require('./index/index');;
 
 class Private extends Module {
@@ -21,4 +21,4 @@ class Private extends Module {
     }
 }
 
-export default Private;
+module.exports = Private;

@@ -1,5 +1,5 @@
-import Bot from './Bot';
-import conf from './configs/customConf.json';
+const Bot = require('./Bot');
+const conf = require('./configs/customConf.json');
 
 if (conf.db === 1) { // eslint-disable-line no-magic-numbers
     try {

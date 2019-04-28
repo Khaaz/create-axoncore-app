@@ -1,7 +1,7 @@
 import { Module } from 'axoncore';
 
 import * as commands from './commands/index';
-import events from './events/index';
+import * as events from './events/index';
 
 class Core extends Module {
     constructor(...args) {
@@ -17,7 +17,7 @@ class Core extends Module {
             description: 'The main module with most basic commands.',
         };
 
-        this.init(commands);
+        this.init(commands, events);
     }
 }
 

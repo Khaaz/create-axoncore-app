@@ -1,8 +1,8 @@
 
 
-import { AxonClient, Resolver } from 'axoncore';
+const { AxonClient, Resolver } = require('axoncore');
 
-import * as modules from './modules/index';
+const modules = require('./modules/index');
 
 class Client extends AxonClient {
     constructor(client, axonOptions) {
@@ -46,4 +46,4 @@ class Client extends AxonClient {
     }
 }
 
-export default Client;
+module.exports = Client;

@@ -1,4 +1,4 @@
-import { Event } from 'axoncore';
+const { Event } = require('axoncore');
 
 class MessageCreateLog extends Event {
     constructor(...args) {
@@ -23,4 +23,4 @@ class MessageCreateLog extends Event {
     }
 }
 
-export default MessageCreateLog;
+module.exports = MessageCreateLog;

@@ -1,2 +1,4 @@
-export { default as Ping } from './Ping';
-export { default as Prefix } from './Prefix';
+module.exports = {
+    Ping: require('./Ping'),
+    Prefix: require('./Prefix'),
+};

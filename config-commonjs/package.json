@@ -10,8 +10,7 @@
     },
     "dependencies": {
         "chalk": "^2.4.2",
-        "eris": "git+https://www.github.com/khaazz/eris.git#axoncore",
-        "esm": "^3.2.22"
+        "eris": "git+https://www.github.com/khaazz/eris.git#axoncore"
     },
     "devDependencies": {
       "eslint": "^5.6.0"

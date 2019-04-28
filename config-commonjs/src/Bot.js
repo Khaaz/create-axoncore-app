@@ -1,11 +1,11 @@
-import Client from './Client';
-import { Client } from 'eris';
+const Client = require('./Client');
+const { ErisClient } = require('eris');
 
-import axonConf from './configs/customConf.json';
-import tokenConf from './configs/tokenConf.json';
-import templateConf from './configs/templateConf.json';
+const axonConf = require('./configs/customConf.json');
+const tokenConf = require('./configs/tokenConf.json');
+const templateConf = require('./configs/templateConf.json');
 
-import CustomUtils from './CustomUtils';
+const CustomUtils = require('./CustomUtils');
 
 const AxonOptions = {
     axonConf,
@@ -15,7 +15,7 @@ const AxonOptions = {
     utils: CustomUtils,
 };
 
-const client = new Client(
+const client = new ErisClient(
     tokenConf.bot.token,
     {
         autoreconnect: true,
@@ -32,4 +32,4 @@ const Bot = new Client(
     AxonOptions
 );
 
-export default Bot;
+module.exports = Bot;

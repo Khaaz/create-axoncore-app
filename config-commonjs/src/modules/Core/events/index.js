@@ -1,2 +1,3 @@
-
-export { default as MessageCreateLog } from './MessageCreateLog';
+module.exports = {
+    MessageCreateLog: require('./MessageCreateLog'),
+};

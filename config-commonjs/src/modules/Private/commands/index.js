@@ -1,1 +1,3 @@
-export { default as Eval } from './Eval';
+module.exports = {
+    Eval: require('./eval'),
+};

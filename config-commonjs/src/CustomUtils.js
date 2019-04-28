@@ -1,4 +1,4 @@
-import { Utils } from 'axoncore';
+const { Utils } = require('axoncore');
 
 class CustomUtils extends Utils {
     constructor(...args) {
@@ -29,4 +29,4 @@ class CustomUtils extends Utils {
     }
 }
 
-export default CustomUtils;
+module.exports = CustomUtils;
