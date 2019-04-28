@@ -1,0 +1,17 @@
+{
+  "name": "create-axoncore-app",
+  "version": "1.0.0",
+  "description": "Create a default axoncore app",
+  "main": "index.js",
+  "repository": "https://github.com/Khaazz/create-axoncore-app.git",
+  "author": "khaazz <khaaz.dev@gmail.com>",
+  "license": "MIT",
+  "bin": "scripts/cli.js",
+  "dependencies": {
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "@axonteam/eslint-config-axonteam": "^2.0.3",
+    "eslint": "^5.16.0"
+  }
+}
