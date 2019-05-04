@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@axonteam/eslint-config-axonteam@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@axonteam/eslint-config-axonteam/-/eslint-config-axonteam-2.0.3.tgz#30a38b4bb35f2c7cbc23f1259c37b48c6bcf29ae"
-  integrity sha512-E6OY7KHTuxpOL/YqU5yZu0EVhK/dhf3NuQ26GwYhF7Ds40XSH36kZto25ZFpue53r8JYhz/uBdqVXv3n4/mFsA==
+"@axonteam/eslint-config@^2.0.3":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@axonteam/eslint-config/-/eslint-config-2.1.0.tgz#c438ca7dfc7168087b36985291d9a97b1a15c9dd"
+  integrity sha512-VfGfjSghFCQNNesVdhdZ7hPT1CTnF+Td87O4Bx7RCxfNBTqHNAdJBbwD9zb2EI5QGhASgWU0R4WouTNhNMP6TA==
 
 "@babel/code-frame@^7.0.0":
   version "7.0.0"
