@@ -7,6 +7,9 @@
   "author": "khaazz <khaaz.dev@gmail.com>",
   "license": "MIT",
   "bin": "scripts/cli.js",
+  "scripts": {
+    "test": "eslint ."
+  },
   "dependencies": {
     "shelljs": "^0.8.3"
   },
