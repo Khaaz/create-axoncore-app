@@ -1,0 +1,49 @@
+{
+    "info": {
+        "name": "AxonCore",
+        "description": "AxonCore - Bot framework",
+        "version": "1.0.0",
+        "library": ""
+    },
+
+    "settings": {
+        "lang": "english",
+        "debugMode": true,
+        "library": 0,
+        "logger": 0,
+        "db": 1,
+        "guildConfigCache": 1000
+    },
+    "prefixes": {
+        "general": "a!",
+        "owner": "!!",
+        "admin": "a."
+    },
+
+    "staff": {
+        "owners": [
+            {
+                "name": "",
+                "id": ""
+            }
+        ],
+        "admins": [
+            {
+                "name": "",
+                "id": ""
+            }
+        ]
+    },
+
+    "template": {
+        "embeds": {
+            "help": "ffffff",
+            "global": 4315874,
+            "error": 15844367
+        },
+        "emotes": {
+            "error": ":x:",
+            "success": ":white_check_mark:"
+        }
+    }
+}
