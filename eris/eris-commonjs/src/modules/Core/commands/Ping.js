@@ -1,6 +1,6 @@
 const { Command, CommandOptions, CommandResponse } = require('axoncore');
 
-import Pong from './Ping_Pong';
+const Pong = require('./Ping_Pong');
 
 class Ping extends Command {
     constructor(module) {
