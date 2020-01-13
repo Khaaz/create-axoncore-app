@@ -22,7 +22,7 @@
   "main": "./index.js",
   "scripts": {
     "start": "node -r esm src/index.js",
-    "startpm2": "pm2 start scripts/start.js"
+    "start:pm2": "pm2 start scripts/start.config.js"
   },
   "repository": {
     "type": "git",
