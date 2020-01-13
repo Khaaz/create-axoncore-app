@@ -98,7 +98,7 @@ shell.mkdir('-p', `${options.location}/scripts`);
 shell.cp(
     '-R',
     `${root}/global/scripts/start-${options.type}.js`,
-    `${options.location}/scripts/start.js`,
+    `${options.location}/scripts/start.config.js`,
 );
 
 // gitignore
