@@ -1,4 +1,4 @@
-const { AxonClient, Resolver } = require('axoncore');
+const { AxonClient } = require('axoncore');
 
 const modules = require('./modules/index');
 
@@ -16,10 +16,6 @@ class Client extends AxonClient {
 
         this.param = 1; // personal stuff
         this._param = 2; // personal hidden stuff
-    }
-
-    get Resolver() {
-        return Resolver;
     }
 
     onInit() {

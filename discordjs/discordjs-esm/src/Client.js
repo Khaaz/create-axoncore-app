@@ -1,4 +1,4 @@
-import { AxonClient, Resolver } from 'axoncore';
+import { AxonClient } from 'axoncore';
 
 import * as modules from './modules/index';
 
@@ -13,10 +13,6 @@ import * as modules from './modules/index';
 class Client extends AxonClient {
     constructor(client, axonOptions) {
         super(client, axonOptions, modules);
-    }
-
-    get Resolver() {
-        return Resolver;
     }
 
     onInit() {

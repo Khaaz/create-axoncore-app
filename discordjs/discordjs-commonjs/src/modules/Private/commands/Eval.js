@@ -9,7 +9,6 @@ const {
     AxonEnums,
     DiscordEnums,
     Collection,
-    Resolver,
     Embed,
     Prompt,
     MessageCollector,
