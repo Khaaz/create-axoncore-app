@@ -27,7 +27,7 @@ class Pong extends Command {
         } );
 
         this.permissions = new CommandPermissions(this, {
-            user: {
+            author: {
                 needed: ['MANAGE_GUILD'],
             },
             staff: {
