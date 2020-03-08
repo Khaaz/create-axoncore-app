@@ -9,9 +9,9 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "axoncore": "git+https://www.github.com/khaazz/axoncore.git",
+    "axoncore": "git+https://www.github.com/khaazz/axoncore.git#dev",
     "chalk": "^2.4.2",
-    "discord.js": "discordjs/discord.js",
+    "discord.js": "^12.0.1",
     "esm": "^3.2.25",
     "pm2": "^4.2.1"
   },
