@@ -24,7 +24,7 @@ class Eval extends Command {
         this.label = 'eval';
         this.aliases = ['eval', 'e'];
 
-        this.infos = {
+        this.info = {
             owners: ['KhaaZ'],
             name: 'eval',
             description: 'Eval js code.',
