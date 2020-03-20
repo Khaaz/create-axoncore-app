@@ -7,7 +7,6 @@ class Pong extends Command {
         this.label = 'pong';
         this.aliases = ['pong'];
 
-        this.isSubcmd = true;
         this.hasSubcmd = false;
 
         this.info = {
