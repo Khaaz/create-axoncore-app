@@ -1,6 +1,10 @@
+// @ts-check
 const { Command, CommandOptions, CommandPermissions, CommandResponse } = require('axoncore');
 
 class Pong extends Command {
+    /**
+     * @param {import('axoncore').Module} module
+     */
     constructor(module) {
         super(module);
 
@@ -17,6 +21,9 @@ class Pong extends Command {
             examples: ['ping pong'],
         };
 
+        /**
+         * @type {CommandOptions}
+         */
         this.options = new CommandOptions(this, {
             argsMin: 0,
             cooldown: 10000,
@@ -25,6 +32,9 @@ class Pong extends Command {
             sendPermissionMessage: true,
         } );
 
+        /**
+         * @type {CommandPermissions}
+         */
         this.permissions = new CommandPermissions(this, {
             author: {
                 needed: ['MANAGE_GUILD'],
@@ -35,6 +45,9 @@ class Pong extends Command {
         } );
     }
 
+    /**
+     * @param {import('axoncore').CommandEnvironment} env
+     */
     async execute( { msg } ) {
         const start = Date.now();
 

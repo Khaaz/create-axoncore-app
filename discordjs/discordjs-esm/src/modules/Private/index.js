@@ -1,11 +1,16 @@
+// @ts-check
 import { Module, CommandPermissions } from 'axoncore';
 
 import * as commands from './commands/index';
 // import * as listeners from './commands/index';
 
 class Private extends Module {
-    constructor(...args) {
-        super(...args);
+    /**
+     * @param {import('axoncore').AxonClient} client
+     * @param {import('axoncore').ModuleData} data
+     */
+    constructor(client, data = {} ) {
+        super(client, data);
 
         this.label = 'Private';
 
@@ -17,6 +22,9 @@ class Private extends Module {
             description: 'Very Private. Much Dev. Wow.',
         };
 
+        /**
+         * @type {CommandPermissions}
+         */
         this.permissions = new CommandPermissions(this, {}, true);
     }
 

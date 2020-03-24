@@ -1,3 +1,4 @@
+// @ts-check
 /* eslint-disable no-unused-vars */
 const nodeUtil = require('util');
 
@@ -6,8 +7,6 @@ const {
     CommandPermissions,
     CommandOptions,
     CommandResponse,
-    AxonEnums,
-    DiscordEnums,
     Collection,
     Embed,
     Prompt,
@@ -20,6 +19,9 @@ const {
 } = require('axoncore');
 
 class Eval extends Command {
+    /**
+     * @param {import('axoncore').Module} module
+     */
     constructor(module) {
         super(module);
 
@@ -34,11 +36,17 @@ class Eval extends Command {
             examples: ['eval 1 + 1'],
         };
 
+        /**
+         * @type {CommandOptions}
+         */
         this.options = new CommandOptions(this, {
             argsMin: 1,
             cooldown: null,
         } );
         
+        /**
+         * @type {CommandPermissions}
+         */
         this.permissions = new CommandPermissions(this, {
             staff: {
                 needed: this.axon.staff.owners,
@@ -47,6 +55,9 @@ class Eval extends Command {
         } );
     }
 
+    /**
+     * @param {import('axoncore').CommandEnvironment} env
+     */
     async execute(env) {
         const { msg, args, guildConfig } = env;
         let evalString;
@@ -87,12 +98,20 @@ class Eval extends Command {
         } );
     }
 
+    /**
+     * @param {String} evalString
+     */
     cleanUpToken(evalString) {
         return evalString
             .split(this.bot._token ? this.bot._token : this.bot.token)
             .join('Khaaz Baguette');
     }
 
+    /**
+     * @param {import('discord.js').TextBasedChannelTypes} channel
+     * @param {String} content
+     * @param {String} lang
+     */
     sendCode(channel, content, lang = 'js') {
         return this.sendMessage(channel, `\`\`\`${lang}\n${content}\`\`\``);
     }

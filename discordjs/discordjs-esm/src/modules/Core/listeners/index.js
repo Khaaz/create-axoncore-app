@@ -1,3 +1,4 @@
+// @ts-check
 export { default as GuildCreate } from './GuildCreate';
 export { default as GuildDelete } from './GuildDelete';
 export { default as MessageCreateLog } from './MessageCreateLog';

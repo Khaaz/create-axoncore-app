@@ -1,11 +1,16 @@
+// @ts-check
 import { Module } from 'axoncore';
 
 import * as commands from './commands/index';
 import * as listeners from './listeners/index';
 
 class Core extends Module {
-    constructor(...args) {
-        super(...args);
+    /**
+     * @param {import('axoncore').AxonClient} client
+     * @param {import('axoncore').ModuleData} data
+     */
+    constructor(client, data = {} ) {
+        super(client, data);
 
         this.label = 'Core';
 

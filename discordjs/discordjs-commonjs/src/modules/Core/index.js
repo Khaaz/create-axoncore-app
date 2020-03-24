@@ -1,11 +1,16 @@
+// @ts-check
 const { Module } = require('axoncore');
 
 const commands = require('./commands/index');
 const listeners = require('./listeners/index');
 
 class Core extends Module {
-    constructor(...args) {
-        super(...args);
+    /**
+     * @param {import('axoncore').AxonClient} client
+     * @param {import('axoncore').ModuleData} data
+     */
+    constructor(client, data = {} ) {
+        super(client, data);
 
         this.label = 'Core';
 
