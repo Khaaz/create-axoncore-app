@@ -9,10 +9,15 @@
   "bin": "scripts/cli.js",
   "scripts": {
     "test": "eslint .",
-    "create": "./scripts/cli.js"
+    "create": "./scripts/cli2.0.js"
   },
   "dependencies": {
+    "axoncore": "^2.0.0",
+    "discord.js": "discordjs/discord.js",
     "@types/mongoose": "^5.7.7",
+    "fs-extra": "^9.0.0",
+    "inquirer": "^7.1.0",
+    "minimist": "^1.2.5",
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
