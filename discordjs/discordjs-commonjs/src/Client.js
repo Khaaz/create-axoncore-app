@@ -1,4 +1,3 @@
-// @ts-check
 const { AxonClient } = require('axoncore');
 
 const modules = require('./modules/index');

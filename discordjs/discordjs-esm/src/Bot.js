@@ -1,4 +1,3 @@
-// @ts-check
 import Discordjs, { Intents } from 'discord.js';
 
 import { AxonOptions } from 'axoncore';

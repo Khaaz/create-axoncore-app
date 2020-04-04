@@ -1,4 +1,3 @@
-// @ts-check
 import { Listener } from 'axoncore';
 
 class GuildCreate extends Listener {

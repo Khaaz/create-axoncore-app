@@ -1,4 +1,3 @@
-// @ts-check
 import { AxonClient } from 'axoncore';
 
 import * as modules from './modules/index';

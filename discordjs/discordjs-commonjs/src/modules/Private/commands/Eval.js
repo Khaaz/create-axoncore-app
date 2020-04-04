@@ -1,4 +1,3 @@
-// @ts-check
 /* eslint-disable no-unused-vars */
 const nodeUtil = require('util');
 
@@ -108,7 +107,7 @@ class Eval extends Command {
     }
 
     /**
-     * @param {import('discord.js').TextBasedChannelTypes} channel
+     * @param {import('discord.js').TextChannel | import('discord.js').NewsChannel | import('discord.js').DMChannel} channel
      * @param {String} content
      * @param {String} lang
      */

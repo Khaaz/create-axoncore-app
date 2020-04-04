@@ -1,4 +1,3 @@
-// @ts-check
 const { Module } = require('axoncore');
 
 const commands = require('./commands/index');

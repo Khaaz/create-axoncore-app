@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import nodeUtil from 'util';
-import { TextBasedChannelTypes } from 'discord.js';
+import { TextChannel, DMChannel, NewsChannel } from 'discord.js';
 import {
     Command,
     CommandPermissions,
@@ -93,7 +93,7 @@ class Eval extends Command {
         return evalString.replace(new RegExp(this.bot._token || this.bot.token, 'g'), 'Khaaz Baguette');
     }
 
-    sendCode(channel: TextBasedChannelTypes, content: string, lang = 'js') {
+    sendCode(channel: TextChannel | DMChannel | NewsChannel, content: string, lang = 'js') {
         return this.sendMessage(channel, `\`\`\`${lang}\n${content}\`\`\``);
     }
 }

@@ -1,4 +1,3 @@
-// @ts-check
 const { Utils } = require('axoncore');
 
 class MyUtils extends Utils {

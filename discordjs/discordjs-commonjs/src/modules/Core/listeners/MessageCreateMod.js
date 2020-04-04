@@ -1,4 +1,3 @@
-// @ts-check
 const { Listener } = require('axoncore');
 
 class MessageCreateMod extends Listener {

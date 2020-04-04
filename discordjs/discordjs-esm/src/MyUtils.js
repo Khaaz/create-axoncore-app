@@ -1,4 +1,3 @@
-// @ts-check
 import { Utils } from 'axoncore';
 
 class MyUtils extends Utils {

@@ -1,4 +1,3 @@
-// @ts-check
 import Bot from './Bot';
 import config from './configs/config.json';
 

@@ -1,4 +1,3 @@
-// @ts-check
 import { Listener } from 'axoncore';
 
 class GuildDelete extends Listener {

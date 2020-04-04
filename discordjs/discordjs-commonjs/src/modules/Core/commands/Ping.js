@@ -1,4 +1,3 @@
-// @ts-check
 const { Command, CommandOptions, CommandResponse } = require('axoncore');
 
 const Pong = require('./Ping_Pong');

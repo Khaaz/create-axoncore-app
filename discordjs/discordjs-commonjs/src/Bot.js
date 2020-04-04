@@ -1,4 +1,3 @@
-// @ts-check
 const Discordjs = require('discord.js');
 
 const { AxonOptions } = require('axoncore');

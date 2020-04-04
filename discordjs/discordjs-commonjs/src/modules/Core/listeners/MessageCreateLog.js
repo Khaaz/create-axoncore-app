@@ -1,4 +1,3 @@
-// @ts-check
 const { Listener } = require('axoncore');
 const { DMChannel } = require('discord.js');
 

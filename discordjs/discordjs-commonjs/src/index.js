@@ -1,4 +1,3 @@
-// @ts-check
 const Bot = require('./Bot');
 const config = require('./configs/config.json');
 

@@ -1,4 +1,3 @@
-// @ts-check
 import { Module } from 'axoncore';
 
 import * as commands from './commands/index';

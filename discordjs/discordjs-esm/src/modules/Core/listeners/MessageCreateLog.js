@@ -1,4 +1,3 @@
-// @ts-check
 import { Listener } from 'axoncore';
 import { DMChannel } from 'discord.js';
 

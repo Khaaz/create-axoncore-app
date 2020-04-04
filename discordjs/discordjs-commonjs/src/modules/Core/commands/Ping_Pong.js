@@ -1,4 +1,3 @@
-// @ts-check
 const { Command, CommandOptions, CommandPermissions, CommandResponse } = require('axoncore');
 
 class Pong extends Command {
