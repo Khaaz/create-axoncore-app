@@ -90,7 +90,7 @@ class Eval extends Command {
     }
 
     cleanUpToken(evalString: string) {
-        return evalString.replace(new RegExp(this.bot._token || this.bot.token, 'g'), 'Khaaz Baguette');
+        return evalString.replace(new RegExp(this.bot.token!, 'g'), 'Khaaz Baguette');
     }
 
     sendCode(channel: TextChannel | DMChannel | NewsChannel, content: string, lang = 'js') {

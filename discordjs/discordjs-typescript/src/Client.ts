@@ -35,7 +35,8 @@ class Client extends AxonClient {
         // called after ready event
         // overrides default editStatus
         // used to setup custom status
-        this.botClient.user.setPresence( {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        this.botClient.user!.setPresence( {
             status: 'online',
             activity: {
                 name: `AxonCore | ${this.settings.prefixes[0]}help`,
