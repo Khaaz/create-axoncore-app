@@ -1,6 +1,9 @@
 import { Command, CommandOptions, CommandPermissions, CommandResponse } from 'axoncore';
 
 class Pong extends Command {
+    /**
+     * @param {import('axoncore').Module} module
+     */
     constructor(module) {
         super(module);
 
@@ -16,7 +19,10 @@ class Pong extends Command {
             usage: 'ping pong',
             examples: ['ping pong'],
         };
-
+ 
+        /**
+         * @type {CommandOptions}
+         */
         this.options = new CommandOptions(this, {
             argsMin: 0,
             cooldown: 10000,
@@ -24,7 +30,10 @@ class Pong extends Command {
             hidden: true,
             sendPermissionMessage: true,
         } );
-
+ 
+        /**
+         * @type {CommandPermissions}
+         */
         this.permissions = new CommandPermissions(this, {
             author: {
                 needed: ['manageGuild'],
@@ -35,6 +44,9 @@ class Pong extends Command {
         } );
     }
 
+    /**
+     * @param {import('axoncore').CommandEnvironment} env
+     */
     async execute( { msg } ) {
         const start = Date.now();
 

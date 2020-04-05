@@ -1,8 +1,13 @@
 import { Listener } from 'axoncore';
+import { PrivateChannel } from 'eris';
 
 class MessageCreateMod extends Listener {
-    constructor(...args) {
-        super(...args);
+    /**
+     * @param {import('axoncore').Module} module
+     * @param {import('axoncore').ListenerData} data
+     */
+    constructor(module, data = {} ) {
+        super(module, data);
 
         /** Event Name (Discord name) */
         this.eventName = 'messageCreate';
@@ -17,8 +22,12 @@ class MessageCreateMod extends Listener {
         };
     }
 
-    execute(message, guildConfig) { // eslint-disable-line
-        if (!message.channel.guild) {
+    /**
+     * @param {import('eris').Message} message
+     * @param {import('axoncore').GuildConfig} guildConfig
+     */
+    execute(message, guildConfig) {
+        if (message.channel instanceof PrivateChannel) {
             return Promise.resolve();
         }
         console.log(`Prefix: ${guildConfig.prefixes}`);

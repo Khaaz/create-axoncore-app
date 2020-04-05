@@ -1,8 +1,13 @@
 const { Listener } = require('axoncore');
+const { PrivateChannel } = require('eris');
 
 class MessageCreateLog extends Listener {
-    constructor(...args) {
-        super(...args);
+    /**
+     * @param {import('axoncore').Module} module
+     * @param {import('axoncore').ListenerData} data
+     */
+    constructor(module, data = {} ) {
+        super(module, data);
 
         /** Event Name (Discord name) */
         this.eventName = 'messageCreate';
@@ -17,8 +22,12 @@ class MessageCreateLog extends Listener {
         };
     }
 
+    /**
+     * @param {import('eris').Message} message
+     * @param {import('axoncore').GuildConfig} guildConfig
+     */
     execute(message, guildConfig) { // eslint-disable-line
-        if (!message.channel.guild) {
+        if (message.channel instanceof PrivateChannel) {
             return Promise.resolve();
         }
         console.log(`Msg ${message.channel.guild.id}`);

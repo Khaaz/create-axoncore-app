@@ -20,6 +20,9 @@ import {
 } from 'axoncore';
 
 class Eval extends Command {
+    /**
+     * @param {import('axoncore').Module} module
+     */
     constructor(module) {
         super(module);
 
@@ -34,11 +37,17 @@ class Eval extends Command {
             examples: ['eval 1 + 1'],
         };
 
+        /**
+         * @type {CommandOptions}
+         */
         this.options = new CommandOptions(this, {
             argsMin: 1,
-            cooldown: null,
+            cooldown: 0,
         } );
         
+        /**
+         * @type {CommandPermissions}
+         */
         this.permissions = new CommandPermissions(this, {
             staff: {
                 needed: this.axon.staff.owners,
@@ -47,6 +56,9 @@ class Eval extends Command {
         } );
     }
 
+    /**
+     * @param {import('axoncore').CommandEnvironment} env
+     */
     async execute(env) {
         const { msg, args, guildConfig } = env;
         let evalString;
@@ -87,12 +99,19 @@ class Eval extends Command {
         } );
     }
 
+    /**
+     * @param {String} evalString
+     */
     cleanUpToken(evalString) {
-        return evalString
-            .split(this.bot._token ? this.bot._token : this.bot.token)
-            .join('Khaaz Baguette');
+        // @ts-ignore
+        return evalString.replace(new RegExp(this.bot.token, 'g'), 'Khaaz Baguette');
     }
 
+    /**
+     * @param {import('eris').TextableChannel} channel
+     * @param {String} content
+     * @param {String} lang
+     */
     sendCode(channel, content, lang = 'js') {
         return this.sendMessage(channel, `\`\`\`${lang}\n${content}\`\`\``);
     }

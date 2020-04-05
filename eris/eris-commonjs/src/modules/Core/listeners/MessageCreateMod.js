@@ -1,8 +1,12 @@
 const { Listener } = require('axoncore');
 
 class MessageCreateMod extends Listener {
-    constructor(...args) {
-        super(...args);
+    /**
+     * @param {import('axoncore').Module} module
+     * @param {import('axoncore').ListenerData} data
+     */
+    constructor(module, data = {} ) {
+        super(module, data);
 
         /** Event Name (Discord name) */
         this.eventName = 'messageCreate';
@@ -17,11 +21,14 @@ class MessageCreateMod extends Listener {
         };
     }
 
+    /**
+     * @param {import('eris').Message} message
+     * @param {import('axoncore').GuildConfig} guildConfig
+     */
     execute(message, guildConfig) { // eslint-disable-line
-        if (!message.channel.guild) {
-            return Promise.resolve();
+        if (guildConfig) {
+            console.log(`Prefix: ${guildConfig.prefixes}`);
         }
-        console.log(`Prefix: ${guildConfig.prefixes}`);
         return Promise.resolve();
     }
 }
