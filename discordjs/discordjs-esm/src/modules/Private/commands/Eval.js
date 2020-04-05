@@ -103,7 +103,8 @@ class Eval extends Command {
      * @param {String} evalString
      */
     cleanUpToken(evalString) {
-        return evalString.replace(new RegExp(this.bot._token || this.bot.token, 'g'), 'Khaaz Baguette');
+        // @ts-ignore
+        return evalString.replace(new RegExp(this.bot.token, 'g'), 'Khaaz Baguette');
     }
 
     /**

@@ -11,6 +11,10 @@ const modules = require('./modules/index');
  * @extends AxonClient
  */
 class Client extends AxonClient {
+    /**
+     * @param {import('discord.js').Client} client
+     * @param {import('axoncore').AxonOptions} axonOptions
+     */
     constructor(client, axonOptions) {
         super(client, axonOptions, modules);
 
