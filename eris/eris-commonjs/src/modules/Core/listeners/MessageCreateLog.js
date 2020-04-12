@@ -1,5 +1,4 @@
 const { Listener } = require('axoncore');
-const { PrivateChannel } = require('eris');
 
 class MessageCreateLog extends Listener {
     /**
@@ -27,7 +26,7 @@ class MessageCreateLog extends Listener {
      * @param {import('axoncore').GuildConfig} guildConfig
      */
     execute(message, guildConfig) { // eslint-disable-line
-        if (message.channel instanceof PrivateChannel) {
+        if (!message.channel.guild) {
             return Promise.resolve();
         }
         console.log(`Msg ${message.channel.guild.id}`);
