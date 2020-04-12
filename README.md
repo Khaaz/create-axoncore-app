@@ -19,15 +19,14 @@ You can create a default boilerplate with all necessary files and folder organis
 You can pass several options, all of them are optional:
 
 - `--lib`, `--library` or `-l`: to specify the library you want to use. `eris`, `discordjs`.
-- `--type` or `-t`: to specify the module system you want to use. `commonjs`, `esm`.
-- `--lang`, `--language` or `-L`: to specify the language you want to use. `javascript`, `typescript`, or you can use `js` and `ts`.
+- `--type` or `-t`: to specify the module system you want to use. `commonjs`, `esm`, `typescript` / `ts`.
 
 Any options you do not specify will be prompted for you to select.
 
 ### Examples 
-`yarn create axoncore-app --lib eris -L typescript`  
+`yarn create axoncore-app --lib eris`  
 `yarn create axoncore-app -l discordjs --type esm`  
-`npm init axoncore-app my-app -t commonjs`  
+`npm init axoncore-app -t commonjs`  
 `npm init axoncore-app`
 
 ---
