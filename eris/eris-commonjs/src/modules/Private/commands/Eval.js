@@ -6,6 +6,7 @@ const {
     CommandPermissions,
     CommandOptions,
     CommandResponse,
+    AxonEnums,
     Collection,
     Embed,
     Prompt,
