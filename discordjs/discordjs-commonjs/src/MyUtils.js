@@ -33,7 +33,7 @@ class MyUtils extends Utils {
     * @returns {String} Hex color code (6 char) (without #)
     */
     rgbTOhex(red, green, blue) {
-        return ((blue | green << 8 | red << 16) | 1 << 24).toString(16).slice(1); // eslint-disable-line
+        return ( (blue | (green << 8) | (red << 16) ) | (1 << 24) ).toString(16).slice(1);
     }
 }
 
