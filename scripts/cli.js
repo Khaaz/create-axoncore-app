@@ -1,117 +1,80 @@
-#!/usr/bin/env node
-
+const inquirer = require('inquirer');
+const argv = require('minimist')(process.argv.slice(2), {
+    alias: { lib: ['library', 'l'], type: 't' },
+} );
+const fs = require('fs-extra');
 const path = require('path');
-const shell = require('shelljs');
 
-shell.config.fatal = true;
+const libraries = [
+    'eris',
+    'discordjs',
+    'discord.js',
+];
+const type = [
+    'esm',
+    'commonjs',
+    'typescript',
+];
 
-const libs = ['eris', 'discordjs'];
-const types = ['commonjs', 'esm'];
+async function inquire() {
+    /**
+     * @type {{dir: String, lib: String, type: String}}
+     */
+    const options = {
+        dir: process.cwd(),
+        lib: argv.lib ? argv.lib.toLowerCase() : null,
+        type: argv.type && argv.type.toLowerCase() === 'ts' ? 'typescript' : (argv.type && argv.type.toLowerCase() ) || null,
+    };
 
-const options = {
-    location: process.cwd(),
-    lib: null,
-    type: 'commonjs',
-    token: '',
-    db: 0,
-};
-
-const flags = {
-    '-l': 'lib',
-    '--lib': 'lib',
-    '-t': 'type',
-    '--type': 'type',
-};
-
-function parseArgs(args) {
-    for (let i = 0; i < args.length; i++) {
-        const flag = flags[args[i]];
-
-        if (flag) {
-            options[flag] = args[i + 1];
-            i++;
-        } else {
-            options.location = `${options.location}/${args[i]}`;
-        }
+    const questions = await inquirer.prompt( [
+        {
+            name: 'lib',
+            type: 'list',
+            message: 'Which library do you want to use?',
+            choices: [
+                'Eris',
+                'Discord.JS',
+                {
+                    name: 'Detritus',
+                    disabled: 'Not currently available on AxonCore!',
+                },
+            ],
+            when: () => !libraries.includes(options.lib),
+            filter: (input) => input.toLowerCase().replace('.', ''),
+        },
+        {
+            name: 'type',
+            type: 'list',
+            message: 'What kind of modules do you want to use?',
+            choices: [
+                'ESM (import/export) - JavaScript',
+                'CommonJS (require/exports) - JavaScript',
+                'TypeScript',
+            ],
+            when: () => !type.includes(options.type),
+            filter: (input) => input.split(' ')[0].toLowerCase(),
+        },
+    ] );
+    for (const x in questions) {
+        options[x] = questions[x];
     }
+    return options;
 }
 
-const [
-    ,, ...args
-] = process.argv;
+async function run() {
+    console.log('=== Starting project initialisation ===');
+    const options = await inquire();
 
-console.log('=== Starting project initialisation ===');
+    const folder = `${options.lib}-${options.type}`;
+    console.log(`> Selecting source: ${folder}`);
+    console.log(`> Creating project files at: '${options.dir}'. Please do not exit out of the program.`);
 
-parseArgs(args);
+    if ( (await fs.readdir(options.dir) ).length) {
+        console.warn('>>> Files exist in your directory. They may be overwritten <<<');
+    }
 
-// exit if no no lib
-if (!options.lib || !libs.includes(options.lib) ) {
-    console.error(`Please specify a valid library. Pick one among: ${libs.join(', ')}.`);
-    process.exit(0);
+    await fs.copy(`${path.resolve(__dirname, '..')}/${options.lib}/${folder}`, options.dir);
+    console.log('=== Project initialised ===');
 }
 
-if (!types.includes(options.type) ) {
-    console.error(`Please specify a valid module structure type. Pick one among: ${types.join(', ')}. Default to 'commonjs'.`);
-    options.type = 'commonjs';
-}
-
-const root = path.resolve(__dirname, '..');
-const source = path.resolve(
-    root,
-    options.lib,
-    `${options.lib}-${options.type}/*`,
-);
-
-console.log(`> Selecting source: ${options.lib}-${options.type}`);
-console.log(`> Creating project files at: ${options.location}`);
-
-try {
-    shell.cp(
-        '-Rn',
-        source,
-        options.location,
-    );
-} catch (err) {
-    shell.mkdir('-p', options.location);
-    console.log('Creating folder...');
-    shell.cp(
-        '-R',
-        source,
-        options.location,
-    );
-}
-
-console.log('> Creating configs folder...');
-shell.cp(
-    '-R',
-    `${root}/global/configs`,
-    `${options.location}/src/`,
-);
-shell.cp(
-    '-R',
-    `${root}/global/config-${options.lib}.json`,
-    `${options.location}/src/configs/config.json`,
-);
-
-console.log('> Creating start scripts...');
-shell.mkdir('-p', `${options.location}/scripts`);
-shell.cp(
-    '-R',
-    `${root}/global/scripts/start-${options.type}.js`,
-    `${options.location}/scripts/start.config.js`,
-);
-
-// gitignore
-shell.cp(
-    '-R',
-    `${root}/global/gitignore`,
-    `${options.location}/.gitignore`,
-);
-// eslintrc
-shell.cp(
-    '-R',
-    `${root}/global/eslintrc.json`,
-    `${options.location}/.eslintrc.json`,
-);
-
-console.log('=== Project initialised ===');
+run();
