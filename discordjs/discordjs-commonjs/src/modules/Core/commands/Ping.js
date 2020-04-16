@@ -3,6 +3,9 @@ const { Command, CommandOptions, CommandResponse } = require('axoncore');
 const Pong = require('./Ping_Pong');
 
 class Ping extends Command {
+    /**
+     * @param {import('axoncore').Module} module
+     */
     constructor(module) {
         super(module);
 
@@ -23,6 +26,9 @@ class Ping extends Command {
             examples: ['ping'],
         };
 
+        /**
+         * @type {CommandOptions}
+         */
         this.options = new CommandOptions(this, {
             argsMin: 0,
             guildOnly: false,
@@ -33,6 +39,9 @@ class Ping extends Command {
         return [Pong];
     }
 
+    /**
+     * @param {import('axoncore').CommandEnvironment} env
+     */
     async execute( { msg } ) {
         const start = Date.now();
 

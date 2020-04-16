@@ -37,6 +37,8 @@ secret.webhooks,
     guildConfig: null,
 } );
 
+const intents = new Discordjs.Intents(Discordjs.Intents.ALL).remove('GUILD_MESSAGE_TYPING');
+
 /**
  * new AxonClient(token, erisOptions, AxonOptions, modules)
  *
@@ -44,10 +46,10 @@ secret.webhooks,
  */
 const client = new Discordjs.Client(
     {
-        disableEveryone: true,
+        disableMentions: 'all',
         fetchAllMembers: false,
         messageCacheMaxSize: 100,
-        disabledEvents: ['TYPING_START'],
+        ws: { intents },
     },
 );
 

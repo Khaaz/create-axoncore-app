@@ -8,9 +8,13 @@ const modules = require('./modules/index');
  * @author KhaaZ
  *
  * @class Client
- * @extends AxonCore.AxonClient
+ * @extends AxonClient
  */
 class Client extends AxonClient {
+    /**
+     * @param {import('eris').Client} client
+     * @param {import('axoncore').AxonOptions} axonOptions
+     */
     constructor(client, axonOptions) {
         super(client, axonOptions, modules);
 
@@ -18,14 +22,24 @@ class Client extends AxonClient {
         this._param = 2; // personal hidden stuff
     }
 
+    /**
+     * @returns {true}
+     */
     onInit() {
         this.staff.contributors = [];
+        return true;
     }
 
+    /**
+     * @returns {Promise<true>}
+     */
     onStart() {
         return Promise.resolve(true);
     }
 
+    /**
+     * @returns {Promise<true>}
+     */
     onReady() {
         return Promise.resolve(true);
     }
@@ -41,6 +55,11 @@ class Client extends AxonClient {
     }
 
     // disabled
+    /**
+     * @param {import('discord.js').Message} msg
+     * @param {import('axoncore').GuildConfig} guildConfig
+     * @returns {Promise<import('discord.js').Message>}
+     */
     // eslint-disable-next-line no-unused-vars
     $sendFullHelp(msg, guildConfig) {
         // override sendFullHelp method
@@ -48,7 +67,11 @@ class Client extends AxonClient {
     }
 
     // disabled
-    // eslint-disable-next-line no-unused-vars
+    /**
+     * @param {import('axoncore').Command} command
+     * @param {import('axoncore').CommandEnvironment} env
+     * @returns {Promise<import('discord.js').Message>}
+     */
     $sendHelp(command, env) {
         // override sendHelp method
         return this.axonUtils.sendMessage(env.msg.channel, `Help override for ${command.label}`);

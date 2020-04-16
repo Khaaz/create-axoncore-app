@@ -1,8 +1,12 @@
 const { Listener } = require('axoncore');
 
 class MessageCreateLog extends Listener {
-    constructor(...args) {
-        super(...args);
+    /**
+     * @param {import('axoncore').Module} module
+     * @param {import('axoncore').ListenerData} data
+     */
+    constructor(module, data = {} ) {
+        super(module, data);
 
         /** Event Name (Discord name) */
         this.eventName = 'message';
@@ -17,6 +21,10 @@ class MessageCreateLog extends Listener {
         };
     }
 
+    /**
+     * @param {import('discord.js').Message} message
+     * @param {import('axoncore').GuildConfig} guildConfig
+     */
     execute(message, guildConfig) { // eslint-disable-line
         if (!message.channel.guild) {
             return Promise.resolve();
