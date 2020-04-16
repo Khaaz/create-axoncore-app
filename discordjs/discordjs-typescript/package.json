@@ -9,7 +9,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "axoncore": "Khaazz/AxonCore",
+    "axoncore": "^2.0.0",
     "chalk": "^2.4.2",
     "discord.js": "^12.0.1",
     "esm": "^3.2.25",

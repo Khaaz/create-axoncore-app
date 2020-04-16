@@ -9,7 +9,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "axoncore": "Khaazz/AxonCore",
+    "axoncore": "^2.0.0",
     "chalk": "^2.4.2",
     "eris": "git+https://www.github.com/khaazz/eris.git#axoncore",
     "esm": "^3.2.25",
