@@ -6,6 +6,7 @@ const argv = require('minimist')(process.argv.slice(2), {
 } );
 const fs = require('fs-extra');
 const path = require('path');
+console.log(argv);
 
 const libraries = [
     'eris',
@@ -23,7 +24,7 @@ async function inquire() {
      * @type {{dir: String, lib: String, type: String}}
      */
     const options = {
-        dir: process.cwd(),
+        dir: require('path').resolve(argv._[0] || process.cwd() ),
         lib: argv.lib ? argv.lib.toLowerCase() : null,
         type: argv.type && argv.type.toLowerCase() === 'ts' ? 'typescript' : (argv.type && argv.type.toLowerCase() ) || null,
     };
