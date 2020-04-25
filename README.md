@@ -25,10 +25,10 @@ You can pass several options, all of them including specifying install location 
 Any options you do not specify will be prompted for you to select.
 
 ### Examples 
-`yarn create ./ axoncore-app --lib eris`  
+`yarn create axoncore-app ./ --lib eris`  
 `yarn create axoncore-app -l discordjs --type esm`  
 `npm init axoncore-app -t commonjs`  
-`npm init ./my-axoncore-project axoncore-app`
+`npm init axoncore-app ./my-axoncore-project`
 
 ---
 
