@@ -3,7 +3,14 @@
   "version": "2.1.1",
   "description": "Create a default AxonCore app.",
   "main": "index.js",
-  "repository": "https://github.com/Khaazz/create-axoncore-app.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khaaz/create-axoncore-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Khaaz/create-axoncore-app/issues"
+  },
+  "homepage": "https://github.com/Khaaz/create-axoncore-app#readme",
   "author": "khaaz <khaaz.dev@gmail.com>",
   "license": "MIT",
   "bin": "scripts/cli.js",
